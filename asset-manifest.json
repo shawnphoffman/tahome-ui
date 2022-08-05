@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/shawnphoffman.com/tahome-ui/static/css/main.1a6870fb.css",
-    "main.js": "/shawnphoffman.com/tahome-ui/static/js/main.7e0afc98.js",
-    "static/js/636.ff70607a.chunk.js": "/shawnphoffman.com/tahome-ui/static/js/636.ff70607a.chunk.js",
-    "static/js/787.daacd0e3.chunk.js": "/shawnphoffman.com/tahome-ui/static/js/787.daacd0e3.chunk.js",
-    "index.html": "/shawnphoffman.com/tahome-ui/index.html",
-    "main.1a6870fb.css.map": "/shawnphoffman.com/tahome-ui/static/css/main.1a6870fb.css.map",
-    "main.7e0afc98.js.map": "/shawnphoffman.com/tahome-ui/static/js/main.7e0afc98.js.map",
-    "636.ff70607a.chunk.js.map": "/shawnphoffman.com/tahome-ui/static/js/636.ff70607a.chunk.js.map",
-    "787.daacd0e3.chunk.js.map": "/shawnphoffman.com/tahome-ui/static/js/787.daacd0e3.chunk.js.map"
+    "main.css": "/tahome-ui/static/css/main.1a6870fb.css",
+    "main.js": "/tahome-ui/static/js/main.887fb493.js",
+    "static/js/636.ff70607a.chunk.js": "/tahome-ui/static/js/636.ff70607a.chunk.js",
+    "static/js/787.daacd0e3.chunk.js": "/tahome-ui/static/js/787.daacd0e3.chunk.js",
+    "index.html": "/tahome-ui/index.html",
+    "main.1a6870fb.css.map": "/tahome-ui/static/css/main.1a6870fb.css.map",
+    "main.887fb493.js.map": "/tahome-ui/static/js/main.887fb493.js.map",
+    "636.ff70607a.chunk.js.map": "/tahome-ui/static/js/636.ff70607a.chunk.js.map",
+    "787.daacd0e3.chunk.js.map": "/tahome-ui/static/js/787.daacd0e3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1a6870fb.css",
-    "static/js/main.7e0afc98.js"
+    "static/js/main.887fb493.js"
   ]
 }
