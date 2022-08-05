@@ -18,6 +18,7 @@ jobs:
           yarn build
         env:
           IMAGE_INLINE_SIZE_LIMIT: 0
+          REACT_APP_APIFY_TOKEN: ${{ secrets.REACT_APP_APIFY_TOKEN }}
           # REACT_APP_PANELBEAR_SITE_ID: ${{ secrets.REACT_APP_PANELBEAR_SITE_ID }}
           # REACT_APP_FIREBASE_apiKey: ${{ secrets.REACT_APP_FIREBASE_apiKey }}
           # REACT_APP_FIREBASE_authDomain: ${{ secrets.REACT_APP_FIREBASE_authDomain }}
