@@ -1,5 +1,4 @@
 import { memo } from 'react'
-import { useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { styled } from 'linaria/react'
 
@@ -59,17 +58,15 @@ const getQualityLabel = aqi => {
 }
 
 const Home = () => {
-	// const { isLoading, error, data } = useQuery(['aqi'], () => fetch(dataUrl).then(res => res.json()), {
-	// 	cacheTime: 30 * 60 * 1000,
-	// })
+	const { isLoading, error, data } = useQuery(['aqi'], () => fetch(dataUrl).then(res => res.json()), {
+		cacheTime: 30 * 60 * 1000,
+	})
 
-	// if (isLoading) return 'Loading...'
+	if (isLoading) return 'Loading...'
 
-	// if (error) return 'An error has occurred: ' + error.message
+	if (error) return 'An error has occurred: ' + error.message
 
-	// const aqi = data[0].aqi
-
-	const aqi = 401
+	const aqi = data[0].aqi
 
 	const colors = QUALITY_COLORS[getQualityIndex(aqi)]
 
