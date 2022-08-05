@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktahome_ui=self.webpackChunktahome_ui||[]).push([[636],{636:function(e,u,h){h.r(u);var n=h(791),i=h(184),t=function(){return(0,i.jsx)("div",{children:(0,i.jsx)("h1",{children:"Tahome"})})};u.default=(0,n.memo)(t)}}]);
+//# sourceMappingURL=636.ff70607a.chunk.js.map
