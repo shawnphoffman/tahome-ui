@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/636.ff70607a.chunk.js","mappings":"uIAEMA,EAAO,WACZ,OACC,0BACC,sCAKH,WAAeC,EAAAA,EAAAA,MAAKD","sources":["pages/Home.js"],"sourcesContent":["import { memo } from 'react'\n\nconst Home = () => {\n\treturn (\n\t\t<div>\n\t\t\t<h1>Tahome</h1>\n\t\t</div>\n\t)\n}\n\nexport default memo(Home)\n"],"names":["Home","memo"],"sourceRoot":""}
