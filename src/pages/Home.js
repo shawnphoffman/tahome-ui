@@ -67,6 +67,7 @@ const Home = () => {
 	if (error) return 'An error has occurred: ' + error.message
 
 	const aqi = data[0].aqi
+	const lastUpdated = new Date(data[0].raw.time_stamp * 1000)
 
 	const colors = QUALITY_COLORS[getQualityIndex(aqi)]
 
@@ -74,6 +75,7 @@ const Home = () => {
 		<Container text={colors.color} background={colors.background}>
 			<Label>AQI: {getQualityLabel(aqi)}</Label>
 			<Value>{aqi}</Value>
+			<TimeStamp>Updated: {lastUpdated.toLocaleString()}</TimeStamp>
 		</Container>
 	)
 }
@@ -87,23 +89,44 @@ const Container = styled.div`
 	font-weight: bold;
 	background: ${p => p.background};
 	color: ${p => p.text};
+	padding: 2rem;
 `
 
 const Label = styled.div`
 	font-size: 5rem;
-	margin-top: 1rem;
 	text-align: center;
 
-	@media (max-width: 500px) {
+	@media (max-width: 600px) {
 		font-size: 3rem;
+	}
+	@media (max-width: 400px) {
+		font-size: 2rem;
 	}
 `
 
 const Value = styled.div`
 	font-size: 30rem;
 
-	@media (max-width: 500px) {
+	@media (max-width: 800px) {
+		font-size: 20rem;
+	}
+	@media (max-width: 600px) {
 		font-size: 15rem;
+	}
+	@media (max-width: 400px) {
+		font-size: 12rem;
+	}
+`
+
+const TimeStamp = styled.div`
+	font-size: 2rem;
+	text-align: center;
+
+	@media (max-width: 600px) {
+		font-size: 1.5rem;
+	}
+	@media (max-width: 400px) {
+		font-size: 1rem;
 	}
 `
 
