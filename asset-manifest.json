@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/tahome-ui/static/css/main.520f1772.css",
-    "main.js": "/tahome-ui/static/js/main.84f701b3.js",
+    "main.js": "/tahome-ui/static/js/main.ee494773.js",
     "static/css/539.e713b9ee.chunk.css": "/tahome-ui/static/css/539.e713b9ee.chunk.css",
-    "static/js/539.7cf05ec4.chunk.js": "/tahome-ui/static/js/539.7cf05ec4.chunk.js",
+    "static/js/539.63de08a7.chunk.js": "/tahome-ui/static/js/539.63de08a7.chunk.js",
     "static/js/787.daacd0e3.chunk.js": "/tahome-ui/static/js/787.daacd0e3.chunk.js",
     "index.html": "/tahome-ui/index.html",
     "main.520f1772.css.map": "/tahome-ui/static/css/main.520f1772.css.map",
-    "main.84f701b3.js.map": "/tahome-ui/static/js/main.84f701b3.js.map",
+    "main.ee494773.js.map": "/tahome-ui/static/js/main.ee494773.js.map",
     "539.e713b9ee.chunk.css.map": "/tahome-ui/static/css/539.e713b9ee.chunk.css.map",
-    "539.7cf05ec4.chunk.js.map": "/tahome-ui/static/js/539.7cf05ec4.chunk.js.map",
+    "539.63de08a7.chunk.js.map": "/tahome-ui/static/js/539.63de08a7.chunk.js.map",
     "787.daacd0e3.chunk.js.map": "/tahome-ui/static/js/787.daacd0e3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.520f1772.css",
-    "static/js/main.84f701b3.js"
+    "static/js/main.ee494773.js"
   ]
 }
