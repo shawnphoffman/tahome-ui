@@ -6,32 +6,32 @@ const dataUrl = `https://api.apify.com/v2/actor-tasks/ice_planet_hoff~purple-sen
 
 const QUALITY_COLORS = [
 	{
-		color: '#607631',
-		background: '#a8e05f',
+		color: '#FFF',
+		background: '#00d24d',
 	},
 	{
-		color: '#8c6c1d',
-		background: '#fdd64b',
+		color: '#000',
+		background: '#fafa4c',
 	},
 	{
-		color: '#974a20',
-		background: '#ff9b57',
+		color: '#FFF',
+		background: '#fc8434',
 	},
 	{
-		color: '#942431',
+		color: '#FFF',
 		background: '#fe6a69',
 	},
 	{
-		color: '#573344',
+		color: '#FFF',
 		background: '#a87383',
 	},
 	{
-		color: '#543b63',
+		color: '#FFF',
 		background: '#a97abc',
 	},
 	{
-		color: '#543b63',
-		background: '#a97abc',
+		color: '#FFF',
+		background: '#543b63',
 	},
 ]
 
