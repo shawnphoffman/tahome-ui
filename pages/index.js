@@ -46,11 +46,6 @@ export default function Home(props) {
 				<Value>{aqi}</Value>
 				<TimeStamp>Updated: {updated}</TimeStamp>
 			</Container>
-			<div>
-				<code>
-					<pre>{JSON.stringify(props, null, 2)}</pre>
-				</code>
-			</div>
 		</div>
 	)
 }
