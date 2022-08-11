@@ -4,9 +4,6 @@ const withLinaria = require('next-linaria')
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
-	linaria: {
-		/* linaria options here */
-	},
 }
 
 module.exports = withLinaria(nextConfig)

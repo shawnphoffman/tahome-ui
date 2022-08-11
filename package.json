@@ -2,26 +2,18 @@
 	"name": "tahome-ui",
 	"version": "0.1.0",
 	"private": true,
-	"main": "index.js",
 	"dependencies": {
-		"@tanstack/react-query": "^4.0.10",
-		"@testing-library/jest-dom": "^5.14.1",
-		"@testing-library/react": "^13.0.0",
-		"@testing-library/user-event": "^13.2.1",
-		"craco-linaria": "^1.1.2",
 		"linaria": "^3.0.0-beta.1",
 		"next": "12.2.4",
 		"next-linaria": "^0.11.0",
 		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"react-scripts": "5.0.1"
+		"react-dom": "18.2.0"
 	},
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"eject": "react-scripts eject"
+		"lint": "next lint"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -42,7 +34,6 @@
 		]
 	},
 	"devDependencies": {
-		"@craco/craco": "^6.4.3",
 		"eslint": "^8.14.0",
 		"eslint-config-next": "^12.2.4",
 		"eslint-plugin-simple-import-sort": "^7.0.0"
