@@ -22,7 +22,7 @@ export async function getServerSideProps(context) {
 	return {
 		props: {
 			aqi,
-			updated: lastUpdated.toLocaleString(),
+			updated: lastUpdated.toLocaleString('en-US', { timeZone: 'PST' }),
 			colors,
 			label,
 			qualityIndex,
