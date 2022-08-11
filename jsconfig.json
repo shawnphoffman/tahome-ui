@@ -1,10 +1,11 @@
 {
 	"compilerOptions": {
-		"baseUrl": "src",
 		"target": "es2017"
 	},
 	"include": [
-		"src"
+		"pages",
+		"styles",
+		"utils"
 	],
 	"exclude": [
 		"node_modules/**/*",

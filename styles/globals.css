@@ -1,5 +1,3 @@
-@import-normalize;
-
 * {
 	box-sizing: border-box;
 	font-family: 'Open Sans', sans-serif;
@@ -17,13 +15,4 @@ html body {
 #root {
 	width: 100%;
 	height: 100%;
-}
-
-@media print {
-	html,
-	html body,
-	#root {
-		background: none !important;
-		height: auto;
-	}
 }
