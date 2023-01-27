@@ -1,15 +1,18 @@
+import { useMemo } from 'react'
 import { styled } from 'linaria/react'
 import Head from 'next/head'
 
 import { getQualityColors, getQualityIndex, getQualityLabel } from '../utils/qualityUtils'
 
-const dataUrl = `https://api.apify.com/v2/actor-tasks/ice_planet_hoff~purple-sensor-fetch/runs/last/dataset/items?token=${process.env.REACT_APP_APIFY_TOKEN}&status=SUCCEEDED`
+// const dataUrl = `https://api.apify.com/v2/actor-tasks/ice_planet_hoff~purple-sensor-fetch/runs/last/dataset/items?token=${process.env.REACT_APP_APIFY_TOKEN}&status=SUCCEEDED`
+const dataUrl = 'https://api.shawn.party/api/tahome/purple'
 
 // Server data fetch
 export async function getServerSideProps(context) {
 	const res = await fetch(dataUrl)
-	const json = await res.json()
-	const data = json[0]
+	const data = await res.json()
+
+	// const data = json[0]
 
 	const aqi = data.aqi
 	const lastUpdated = new Date(data.raw.time_stamp * 1000)
@@ -32,13 +35,14 @@ export async function getServerSideProps(context) {
 
 //
 export default function Home(props) {
-	const { aqi, updated, colors, label, qualityIndex } = props
+	const { aqi, updated, colors, label } = props
+
+	const title = useMemo(() => `Tahome AQI: ${aqi} ${label}`, [aqi, label])
+
 	return (
 		<div>
 			<Head>
-				<title>
-					Tahome AQI: {aqi} {label}
-				</title>
+				<title>{title}</title>
 				<meta name="description" content="Air quality at Tahome" />
 			</Head>
 			<Container text={colors.color} background={colors.background}>
