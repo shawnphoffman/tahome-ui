@@ -1,0 +1,62 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1;
+	text-align: center;
+}
+
+.container {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	font-weight: bold;
+	padding: 2rem;
+}
+
+.label {
+	font-size: max(10vmin, 14px);
+}
+
+.value {
+	font-size: 55vmin;
+	line-height: 0.9;
+	padding-bottom: 3vmin;
+}
+
+.timeStamp {
+	font-size: max(3vmin, 12px);
+	opacity: 0.5;
+}
+
+/* AQI Groups */
+.good {
+	color: #fff;
+	background: #00d24d;
+}
+.moderate {
+	color: #000;
+	background: #fafa4c;
+}
+.sensitive {
+	color: #fff;
+	background: #fc8434;
+}
+.unhealthySensitive {
+	color: #fff;
+	background: #fe6a69;
+}
+.veryUnhealty {
+	color: #fff;
+	background: #a87383;
+}
+.hazardous {
+	color: #fff;
+	background: #a97abc;
+}
+.veryHazardous {
+	color: #fff;
+	background: #543b63;
+}

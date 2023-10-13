@@ -17,5 +17,6 @@ module.exports = {
 		],
 		'sort-imports': 'off',
 		'import/order': 'off',
+		'react/no-unescaped-entities': 'warn',
 	},
 }
