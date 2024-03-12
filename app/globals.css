@@ -1,6 +1,5 @@
 * {
 	box-sizing: border-box;
-	font-family: 'Open Sans', sans-serif;
 	line-height: 1;
 	text-align: center;
 }
@@ -10,16 +9,12 @@
 	width: 100vw;
 	height: 100vh;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	flex-direction: column;
 	font-weight: bold;
-	/* padding: 2rem; */
-	gap: min(1rem, 5vmin);
+	gap: min(1rem, 3vmin);
 }
 
-/* .label {
-	font-size: max(10vmin, 14px);
-} */
 .label {
 	font-size: max(3vmin, 24px);
 	opacity: 0.5;
@@ -63,4 +58,8 @@
 .veryHazardous {
 	color: #fff;
 	background: #543b63;
+}
+.dead {
+	color: #fff;
+	background: #000;
 }

@@ -20,9 +20,12 @@ export const getQuality = aqi => {
 		qualityIndex = Math.floor(Math.abs(aqi - 1) / 100) + 2
 	}
 
+	const label = QUALITY[qualityIndex]
+	const cls = QUALITY_CLASSES[qualityIndex]
+
 	return {
 		index: qualityIndex,
-		label: QUALITY[qualityIndex],
-		cls: QUALITY_CLASSES[qualityIndex],
+		label: label || 'You are dead...',
+		cls: cls || 'dead',
 	}
 }
