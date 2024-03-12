@@ -13,17 +13,21 @@
 	justify-content: flex-start;
 	flex-direction: column;
 	font-weight: bold;
-	padding: 2rem;
+	/* padding: 2rem; */
+	gap: min(1rem, 5vmin);
 }
 
-.label {
+/* .label {
 	font-size: max(10vmin, 14px);
+} */
+.label {
+	font-size: max(3vmin, 24px);
+	opacity: 0.5;
 }
 
 .value {
 	font-size: 55vmin;
 	line-height: 0.9;
-	padding-bottom: 3vmin;
 }
 
 .timeStamp {
@@ -40,15 +44,15 @@
 	color: #000;
 	background: #fafa4c;
 }
-.sensitive {
+.unhealthySensitive {
 	color: #fff;
 	background: #fc8434;
 }
-.unhealthySensitive {
+.unhealthy {
 	color: #fff;
 	background: #fe6a69;
 }
-.veryUnhealty {
+.veryUnhealthy {
 	color: #fff;
 	background: #a87383;
 }

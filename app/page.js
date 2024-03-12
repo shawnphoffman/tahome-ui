@@ -46,8 +46,9 @@ const Home = async () => {
 	return (
 		<div>
 			<div className={`container ${cls}`}>
-				<div className="label">AQI: {label}</div>
+				{/* <div className="label">AQI: {label}</div> */}
 				<div className="value">{aqi}</div>
+				<div className="label">{label}</div>
 				<div className="timeStamp">Updated: {updated}</div>
 			</div>
 		</div>
