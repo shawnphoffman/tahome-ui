@@ -1,22 +1,7 @@
 module.exports = {
-	extends: 'next/core-web-vitals',
-	plugins: ['simple-import-sort'],
+	extends: ['@shawnphoffman/eslint-config', 'next/core-web-vitals'],
+	plugins: ['react'],
 	rules: {
-		'simple-import-sort/imports': [
-			'error',
-			{
-				groups: [
-					['^\\u0000'],
-					['^react$', '^react', '^@?\\w'],
-					['^(@root|types|data)(/.*)'],
-					['^(components|utils|context|config|pages|hooks)(/.*)'],
-					[('^\\.\\.(?!/?$)', '^\\.\\./?$')],
-					['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-				],
-			},
-		],
-		'sort-imports': 'off',
-		'import/order': 'off',
 		'react/no-unescaped-entities': 'warn',
 	},
 }

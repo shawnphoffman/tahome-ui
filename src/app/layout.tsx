@@ -1,5 +1,4 @@
-import './normalize.css'
-import './globals.css'
+import '@/app/globals.css'
 
 import { GeistMono } from 'geist/font/mono'
 
@@ -10,7 +9,7 @@ export const metadata = {
 
 const TahomeApp = ({ children }) => {
 	return (
-		<html lang="en" className={GeistMono.className}>
+		<html lang="en" className={`m-0 p-0 bg-black text-white ${GeistMono.className}`}>
 			<body>{children}</body>
 		</html>
 	)
