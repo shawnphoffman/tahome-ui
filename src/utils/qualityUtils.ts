@@ -1,35 +1,42 @@
 const QUALITY_CONST = {
 	good: {
 		label: 'Good',
-		cls: 'bg-good text-good-foreground',
+		cls: 'bg-green-600 text-white',
 	},
 	moderate: {
 		label: 'Moderate',
-		cls: 'bg-moderate text-moderate-foreground',
+		// cls: 'bg-moderate text-moderate-foreground',
+		cls: 'bg-yellow-500 text-black',
 	},
 	unhealthySensitive: {
 		label: 'Unhealthy for Sensitive Groups',
-		cls: 'bg-unhealthySensitive text-unhealthySensitive-foreground',
+		// cls: 'bg-unhealthySensitive text-unhealthySensitive-foreground',
+		cls: 'bg-orange-500 text-white',
 	},
 	unhealthy: {
 		label: 'Unhealthy',
-		cls: 'bg-unhealthy text-unhealthy-foreground',
+		// cls: 'bg-unhealthy text-unhealthy-foreground',
+		cls: 'bg-pink-600 text-white',
 	},
 	veryUnhealthy: {
 		label: 'Very Unhealthy',
-		cls: 'bg-veryUnhealthy text-veryUnhealthy-foreground',
+		// cls: 'bg-veryUnhealthy text-veryUnhealthy-foreground',
+		cls: 'bg-fuchsia-600 text-white',
 	},
 	hazardous: {
 		label: 'Hazardous',
-		cls: 'bg-hazardous text-hazardous-foreground',
+		// cls: 'bg-hazardous text-hazardous-foreground',
+		cls: 'bg-purple-600 text-white',
 	},
 	veryHazardous: {
 		label: 'Very Hazardous',
-		cls: 'bg-veryHazardous text-veryHazardous-foreground',
+		// cls: 'bg-veryHazardous text-veryHazardous-foreground',
+		cls: 'bg-indigo-600 text-white',
 	},
 	dead: {
 		label: 'You are dead...',
-		cls: 'bg-dead text-dead-foreground',
+		// cls: 'bg-dead text-dead-foreground',
+		cls: 'bg-black text-white',
 	},
 } as const
 
