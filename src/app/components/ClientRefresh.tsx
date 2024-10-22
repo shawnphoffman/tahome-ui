@@ -7,7 +7,7 @@ export default function ClientRefresh() {
 	const router = useRouter()
 
 	useEffect(() => {
-		console.log('Refreshing...')
+		// console.log('Refreshing...')
 		setTimeout(() => {
 			router.refresh()
 		}, 1000)

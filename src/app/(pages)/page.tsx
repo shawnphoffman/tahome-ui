@@ -38,12 +38,12 @@ export async function generateMetadata() {
 const Home = async () => {
 	const { aqi, updated, label, cls } = await getData()
 
-	console.log({
-		aqi,
-		updated,
-		label,
-		cls,
-	})
+	// console.log({
+	// 	aqi,
+	// 	updated,
+	// 	label,
+	// 	cls,
+	// })
 
 	return (
 		<div className={`flex w-dvw h-dvh items-center justify-center flex-col font-bold gap-[min(1rem,3vmin)] ${cls}`}>
