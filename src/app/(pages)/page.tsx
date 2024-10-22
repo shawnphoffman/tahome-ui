@@ -48,7 +48,7 @@ const Home = async () => {
 	return (
 		<div className={`flex w-dvw h-dvh items-center justify-center flex-col font-bold gap-[min(1rem,3vmin)] ${cls}`}>
 			<div className="text-[55vmin] leading-[0.9]">{aqi}</div>
-			<div className="text-[max(9vmin,24px)] opacity-50">{label}</div>
+			<div className="text-[max(9vmin,24px)] opacity-50 text-center">{label}</div>
 			<div className="flex flex-col gap-1">
 				<div className="text-[max(3vmin,12px)] opacity-75 text-center">
 					{formatDistance(new Date(updated!), new Date(), { addSuffix: true })}
