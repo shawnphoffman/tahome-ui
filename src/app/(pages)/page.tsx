@@ -29,9 +29,9 @@ async function getData() {
 }
 
 export async function generateMetadata() {
-	const { aqi, label } = await getData()
+	const { label } = await getData()
 	return {
-		title: `${aqi} ${label} | Tahome AQI`,
+		title: `${label} | Tahome AQI`,
 	}
 }
 
