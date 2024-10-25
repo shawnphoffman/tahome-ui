@@ -10,7 +10,9 @@ export const metadata = {
 const TahomeApp = ({ children }) => {
 	return (
 		<html lang="en" className={`m-0 p-0 bg-black text-white ${GeistMono.className}`}>
-			<body>{children}</body>
+			<body>
+				<main>{children}</main>
+			</body>
 		</html>
 	)
 }

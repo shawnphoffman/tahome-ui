@@ -38,6 +38,8 @@ export async function generateMetadata() {
 const Home = async () => {
 	const { aqi, updated, label, cls } = await getData()
 
+	const blend = aqi >= 400 ? 'none' : 'mix-blend-overlay'
+
 	// console.log({
 	// 	aqi,
 	// 	updated,
@@ -48,14 +50,11 @@ const Home = async () => {
 	return (
 		<div className={`flex w-dvw h-dvh items-center justify-center flex-col font-bold gap-[min(1rem,3vmin)] ${cls}`}>
 			<div className="text-[55vmin] leading-[0.9]">{aqi}</div>
-			<div className="text-[max(9vmin,24px)] opacity-50 text-center">{label}</div>
+			<div className={`text-[max(9vmin,24px)] opacity-95 ${blend} text-center `}>{label}</div>
 			<div className="flex flex-col gap-1">
-				<div className="text-[max(3vmin,12px)] opacity-75 text-center">
+				<div className={`text-[max(3vmin,12px)] opacity-90 text-black ${blend} text-center`}>
 					{formatDistance(new Date(updated!), new Date(), { addSuffix: true })}
 				</div>
-				{/* <div className="text-[max(3vmin,12px)] opacity-50 text-center leading-tight">
-					Updated {formatRelative(new Date(updated!), new Date())}
-				</div> */}
 			</div>
 			<ClientRefresh />
 		</div>
