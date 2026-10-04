@@ -1,3 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* EPA-style AQI buckets. Each pairs with the text color in qualityUtils.ts and passes WCAG AA (4.5:1). */
+@theme {
+	--color-aqi-good: #22c55e; /* black text, 9.2:1 */
+	--color-aqi-moderate: #facc15; /* black text, 13.7:1 */
+	--color-aqi-unhealthy-sensitive: #f97316; /* black text, 7.5:1 */
+	--color-aqi-unhealthy: #b91c1c; /* white text, 6.5:1 */
+	--color-aqi-very-unhealthy: #7e22ce; /* white text, 7.0:1 */
+	--color-aqi-hazardous: #881337; /* white text, 9.6:1 */
+	--color-aqi-very-hazardous: #4c0519; /* white text, 15.6:1 */
+	--color-aqi-dead: #000000; /* white text, 21:1 */
+}

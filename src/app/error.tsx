@@ -1,26 +1,27 @@
 'use client'
 
-import { memo, useEffect } from 'react'
+import { useEffect } from 'react'
 
-const Error = ({ error, reset }) => {
+type Props = {
+	error: Error & { digest?: string }
+	retry: () => void
+}
+
+export default function Error({ error, retry }: Props) {
 	useEffect(() => {
-		// Log the error to an error reporting service
 		console.error(error)
 	}, [error])
 
 	return (
-		<div>
-			<h2>Something went wrong!</h2>
+		<div className="flex w-dvw h-dvh items-center justify-center flex-col font-bold gap-[min(2rem,5vmin)] bg-indigo-900 text-white">
+			<div className="text-[max(9vmin,24px)] text-center">AQI unavailable</div>
 			<button
-				onClick={
-					// Attempt to recover by trying to re-render the segment
-					() => reset()
-				}
+				type="button"
+				onClick={() => retry()}
+				className="rounded border-2 border-white px-6 py-3 text-[max(3vmin,16px)] hover:bg-white hover:text-indigo-900 focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-white"
 			>
 				Try again
 			</button>
 		</div>
 	)
 }
-
-export default memo(Error)

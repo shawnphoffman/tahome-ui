@@ -1,21 +1,22 @@
+import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 
-type Props = {
-	params: Promise<{
-		code: number
-	}>
-}
+async function ErrorCode({ params }: Pick<PageProps<'/error/[code]'>, 'params'>) {
+	const code = Number((await params).code)
 
-export default async function DynamicErrorPage({ params }: Props) {
-	const { code } = await params
-
-	if (Number.isNaN(code)) {
-		return notFound()
+	if (!Number.isInteger(code)) {
+		notFound()
 	}
 
+	return <div className="text-[50vmin] leading-[0.9]">{code}</div>
+}
+
+export default function DynamicErrorPage({ params }: PageProps<'/error/[code]'>) {
 	return (
 		<div className={`flex w-dvw h-dvh items-center justify-center flex-col font-bold gap-[min(1rem,3vmin)] bg-purple-900 text-white`}>
-			<div className="text-[50vmin] leading-[0.9]">{code}</div>
+			<Suspense>
+				<ErrorCode params={params} />
+			</Suspense>
 		</div>
 	)
 }

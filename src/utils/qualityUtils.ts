@@ -1,46 +1,41 @@
 const QUALITY_CONST = {
 	good: {
 		label: 'Good',
-		cls: 'bg-green-600 text-white',
+		cls: 'bg-aqi-good text-black',
 	},
 	moderate: {
 		label: 'Moderate',
-		// cls: 'bg-moderate text-moderate-foreground',
-		cls: 'bg-yellow-500 text-black',
+		cls: 'bg-aqi-moderate text-black',
 	},
 	unhealthySensitive: {
 		label: 'Unhealthy for Sensitive Groups',
-		// cls: 'bg-unhealthySensitive text-unhealthySensitive-foreground',
-		cls: 'bg-orange-500 text-white',
+		cls: 'bg-aqi-unhealthy-sensitive text-black',
 	},
 	unhealthy: {
 		label: 'Unhealthy',
-		// cls: 'bg-unhealthy text-unhealthy-foreground',
-		cls: 'bg-pink-600 text-white',
+		cls: 'bg-aqi-unhealthy text-white',
 	},
 	veryUnhealthy: {
 		label: 'Very Unhealthy',
-		// cls: 'bg-veryUnhealthy text-veryUnhealthy-foreground',
-		cls: 'bg-fuchsia-600 text-white',
+		cls: 'bg-aqi-very-unhealthy text-white',
 	},
 	hazardous: {
 		label: 'Hazardous',
-		// cls: 'bg-hazardous text-hazardous-foreground',
-		cls: 'bg-purple-600 text-white',
+		cls: 'bg-aqi-hazardous text-white',
 	},
 	veryHazardous: {
 		label: 'Very Hazardous',
-		// cls: 'bg-veryHazardous text-veryHazardous-foreground',
-		cls: 'bg-indigo-600 text-white',
+		cls: 'bg-aqi-very-hazardous text-white',
 	},
 	dead: {
 		label: 'You are dead...',
-		// cls: 'bg-dead text-dead-foreground',
-		cls: 'bg-black text-white',
+		cls: 'bg-aqi-dead text-white',
 	},
 } as const
 
-const QUALITY_CLASSES = ['good', 'moderate', 'unhealthySensitive', 'unhealthy', 'veryUnhealthy', 'hazardous', 'veryHazardous']
+type QualityKey = keyof typeof QUALITY_CONST
+
+const QUALITY_CLASSES: QualityKey[] = ['good', 'moderate', 'unhealthySensitive', 'unhealthy', 'veryUnhealthy', 'hazardous', 'veryHazardous']
 
 // UPDATED 2024
 /*                                       AQI     RAW PM2.5
@@ -53,7 +48,7 @@ const QUALITY_CLASSES = ['good', 'moderate', 'unhealthySensitive', 'unhealthy', 
 	Very Hazardous                   401 – 500  |  325.5 – 500.4
 */
 
-export const getQuality = aqi => {
+export const getQuality = (aqi: number) => {
 	let qualityIndex = 0
 
 	if (aqi <= 200) {
@@ -63,7 +58,7 @@ export const getQuality = aqi => {
 	}
 
 	const key = QUALITY_CLASSES[qualityIndex]
-	const { label, cls } = QUALITY_CONST[key] || QUALITY_CONST.dead
+	const { label, cls } = (key && QUALITY_CONST[key]) || QUALITY_CONST.dead
 
 	return {
 		index: qualityIndex,

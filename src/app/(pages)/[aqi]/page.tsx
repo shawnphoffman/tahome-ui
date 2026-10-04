@@ -1,31 +1,23 @@
+import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 
-import { getQuality } from '@/utils/qualityUtils'
+import AqiDisplay from '@/app/components/AqiDisplay'
 
-type Props = {
-	params: Promise<{
-		aqi: number
-	}>
-}
+async function AqiPreview({ params }: Pick<PageProps<'/[aqi]'>, 'params'>) {
+	const aqi = Number((await params).aqi)
 
-export default async function DynamicErrorPage({ params }: Props) {
-	const { aqi } = await params
-
-	if (Number.isNaN(aqi)) {
-		return notFound()
+	if (!Number.isFinite(aqi)) {
+		notFound()
 	}
 
-	const { cls, label } = getQuality(aqi)
+	return <AqiDisplay aqi={aqi}>a while ago</AqiDisplay>
+}
 
-	const blend = aqi >= 400 ? 'none' : 'mix-blend-overlay'
-
+// Preview any AQI value, e.g. /175. Params are read inside Suspense so Cache Components can serve a static shell.
+export default function AqiPreviewPage({ params }: PageProps<'/[aqi]'>) {
 	return (
-		<div className={`flex w-dvw h-dvh items-center justify-center flex-col font-bold gap-[min(1rem,3vmin)] ${cls}`}>
-			<div className="text-[55vmin] leading-[0.9]">{aqi}</div>
-			<div className={`text-[max(9vmin,24px)] opacity-95 ${blend} text-center `}>{label}</div>
-			<div className="flex flex-col gap-1">
-				<div className={`text-[max(3vmin,12px)] opacity-90 text-black ${blend} text-center`}>a while ago</div>
-			</div>
-		</div>
+		<Suspense>
+			<AqiPreview params={params} />
+		</Suspense>
 	)
 }
