@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useSyncExternalStore } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useSyncExternalStore, useTransition } from 'react'
+
+import { refreshReading } from '@/app/actions'
 
 const REFRESH_MS = 60_000
 const TICK_MS = 15_000
@@ -40,13 +41,17 @@ type Props = {
 }
 
 // Shows how old the reading is and pulls fresh server data once a minute while the tab is visible.
+// The current reading stays on screen during a refresh, with a pulsing dot until the new one arrives.
 export default function LiveUpdated({ updated }: Props) {
-	const router = useRouter()
 	const current = useSyncExternalStore(subscribeToClock, getClock, getServerClock)
+	const [isRefreshing, startRefresh] = useTransition()
 
 	useEffect(() => {
 		const refresh = () => {
-			if (document.visibilityState === 'visible') router.refresh()
+			if (document.visibilityState !== 'visible') return
+			startRefresh(async () => {
+				await refreshReading()
+			})
 		}
 		const id = setInterval(refresh, REFRESH_MS)
 		document.addEventListener('visibilitychange', refresh)
@@ -54,11 +59,15 @@ export default function LiveUpdated({ updated }: Props) {
 			clearInterval(id)
 			document.removeEventListener('visibilitychange', refresh)
 		}
-	}, [router])
+	}, [])
 
 	return (
-		<time dateTime={new Date(updated).toISOString()}>
-			{current === null ? ' ' : formatAgo(updated, current)}
-		</time>
+		<span className="inline-flex items-center gap-[0.5em]">
+			<time dateTime={new Date(updated).toISOString()}>{current === null ? ' ' : formatAgo(updated, current)}</time>
+			<span
+				aria-hidden
+				className={`size-[0.5em] rounded-full bg-current transition-opacity duration-500 ${isRefreshing ? 'opacity-70 motion-safe:animate-pulse' : 'opacity-0'}`}
+			/>
+		</span>
 	)
 }

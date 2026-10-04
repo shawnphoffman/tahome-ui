@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 
 import AqiDisplay from '@/app/components/AqiDisplay'
+import LoadingScreen from '@/app/components/LoadingScreen'
 
 async function AqiPreview({ params }: Pick<PageProps<'/[aqi]'>, 'params'>) {
 	const aqi = Number((await params).aqi)
@@ -16,7 +17,7 @@ async function AqiPreview({ params }: Pick<PageProps<'/[aqi]'>, 'params'>) {
 // Preview any AQI value, e.g. /175. Params are read inside Suspense so Cache Components can serve a static shell.
 export default function AqiPreviewPage({ params }: PageProps<'/[aqi]'>) {
 	return (
-		<Suspense>
+		<Suspense fallback={<LoadingScreen />}>
 			<AqiPreview params={params} />
 		</Suspense>
 	)

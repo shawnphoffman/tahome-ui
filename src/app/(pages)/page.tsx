@@ -1,22 +1,18 @@
-import { Suspense } from 'react'
+import { cache, Suspense } from 'react'
 import type { Metadata } from 'next'
-import { cacheLife } from 'next/cache'
 
 import AqiDisplay from '@/app/components/AqiDisplay'
 import LiveUpdated from '@/app/components/LiveUpdated'
+import LoadingScreen from '@/app/components/LoadingScreen'
 import { getQuality } from '@/utils/qualityUtils'
 
 const dataUrl = 'https://api.shawn.party/api/tahome/purple'
 
-// Throws instead of returning an empty result so a failed fetch never gets cached as a blank page.
-async function getData() {
-	'use cache'
-	// Fetched at request time, never baked into the build: an expire under 5 minutes keeps this out of
-	// prerenders. Viewers share one upstream call per minute; after 4 idle minutes the next request
-	// waits for a fresh reading instead of showing an old one.
-	cacheLife({ stale: 30, revalidate: 60, expire: 240 })
-
-	const res = await fetch(dataUrl, { signal: AbortSignal.timeout(10_000) })
+// Fetched on every request: the proxy already shares one cached reading across all of its instances,
+// while a cache here would be per instance and could show readings from different moments.
+// cache() lets the title and the page share a single fetch per request.
+const getData = cache(async () => {
+	const res = await fetch(dataUrl, { cache: 'no-store', signal: AbortSignal.timeout(10_000) })
 	if (!res.ok) {
 		throw new Error(`AQI request failed: ${res.status} ${res.statusText}`)
 	}
@@ -32,7 +28,7 @@ async function getData() {
 		aqi: data.aqi as number,
 		updated: readingTime * 1000,
 	}
-}
+})
 
 export async function generateMetadata(): Promise<Metadata> {
 	const { aqi } = await getData()
@@ -53,7 +49,7 @@ async function Reading() {
 
 const Home = () => {
 	return (
-		<Suspense>
+		<Suspense fallback={<LoadingScreen />}>
 			<Reading />
 		</Suspense>
 	)

@@ -10,4 +10,18 @@
 	--color-aqi-hazardous: #881337; /* white text, 9.6:1 */
 	--color-aqi-very-hazardous: #4c0519; /* white text, 15.6:1 */
 	--color-aqi-dead: #000000; /* white text, 21:1 */
+
+	--animate-fade-in: fade-in 600ms ease-out both;
+	--animate-fade-in-delayed: fade-in 600ms ease-out 400ms both;
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+			transform: scale(0.98);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
 }
