@@ -1,4 +1,4 @@
-import { cache, Suspense } from 'react'
+import { cache, Suspense, ViewTransition } from 'react'
 import type { Metadata } from 'next'
 
 import AqiDisplay from '@/app/components/AqiDisplay'
@@ -47,10 +47,19 @@ async function Reading() {
 	)
 }
 
+// The loading screen fades out as the reading fades in
 const Home = () => {
 	return (
-		<Suspense fallback={<LoadingScreen />}>
-			<Reading />
+		<Suspense
+			fallback={
+				<ViewTransition exit="loading-exit" default="none">
+					<LoadingScreen />
+				</ViewTransition>
+			}
+		>
+			<ViewTransition enter="reading-enter" default="none">
+				<Reading />
+			</ViewTransition>
 		</Suspense>
 	)
 }

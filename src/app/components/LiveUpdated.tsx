@@ -62,11 +62,12 @@ export default function LiveUpdated({ updated }: Props) {
 	}, [])
 
 	return (
-		<span className="inline-flex items-center gap-[0.5em]">
+		<span className="relative">
 			<time dateTime={new Date(updated).toISOString()}>{current === null ? ' ' : formatAgo(updated, current)}</time>
+			{/* Positioned outside the text's box so the time stays centered whether or not it shows */}
 			<span
 				aria-hidden
-				className={`size-[0.5em] rounded-full bg-current transition-opacity duration-500 ${isRefreshing ? 'opacity-70 motion-safe:animate-pulse' : 'opacity-0'}`}
+				className={`absolute left-full top-1/2 ml-[0.5em] size-[0.5em] -translate-y-1/2 rounded-full bg-current transition-opacity duration-500 ${isRefreshing ? 'opacity-70 motion-safe:animate-pulse' : 'opacity-0'}`}
 			/>
 		</span>
 	)

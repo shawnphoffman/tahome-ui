@@ -11,17 +11,58 @@
 	--color-aqi-very-hazardous: #4c0519; /* white text, 15.6:1 */
 	--color-aqi-dead: #000000; /* white text, 21:1 */
 
-	--animate-fade-in: fade-in 600ms ease-out both;
 	--animate-fade-in-delayed: fade-in 600ms ease-out 400ms both;
 
 	@keyframes fade-in {
 		from {
 			opacity: 0;
-			transform: scale(0.98);
 		}
 		to {
 			opacity: 1;
-			transform: scale(1);
 		}
+	}
+}
+
+/* View transitions (React <ViewTransition>): plain opacity crossfades, no movement */
+@keyframes vt-fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes vt-fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+/* A refreshed AQI value or label: old and new crossfade in place */
+::view-transition-group(.aqi-crossfade) {
+	animation-duration: 600ms;
+	animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(.aqi-crossfade) {
+	animation: 600ms ease-in-out both vt-fade-out;
+}
+
+::view-transition-new(.aqi-crossfade) {
+	animation: 600ms ease-in-out both vt-fade-in;
+}
+
+/* First load: the loading screen fades out as the reading fades in */
+::view-transition-old(.loading-exit) {
+	animation: 300ms ease-out both vt-fade-out;
+}
+
+::view-transition-new(.reading-enter) {
+	animation: 500ms ease-out both vt-fade-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(*),
+	::view-transition-new(*),
+	::view-transition-group(*) {
+		animation: none !important;
 	}
 }
